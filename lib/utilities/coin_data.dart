@@ -30,8 +30,8 @@ const List<String> currenciesList = [
 
 const List<String> cryptoList = ['BTC', 'ETH', 'LTC', 'USDC', 'BNB'];
 
-const String apiUrl = 'https://rest.coinapi.io/v1/exchangerate';
-final String apiKey = dotenv.get('API_KEY2');
+const String _apiUrl = 'https://rest.coinapi.io/v1/exchangerate';
+final String _apiKey = dotenv.get('API_KEY');
 
 class CoinData {
   Future getCoinData({required String selectedCurrency}) async {
@@ -39,7 +39,7 @@ class CoinData {
 
     for (String crypto in cryptoList) {
       final requestUrl =
-          Uri.parse('$apiUrl/$crypto/$selectedCurrency?apikey=$apiKey');
+          Uri.parse('$_apiUrl/$crypto/$selectedCurrency?apikey=$_apiKey');
       if (kDebugMode) {
         print(requestUrl.toString());
       }

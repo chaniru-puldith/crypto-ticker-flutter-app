@@ -9,18 +9,18 @@ class PriceScreen extends StatefulWidget {
   const PriceScreen({super.key});
 
   @override
-  _PriceScreenState createState() => _PriceScreenState();
+  State<PriceScreen> createState() => _PriceScreenState();
 }
 
 class _PriceScreenState extends State<PriceScreen> {
-  String selectedCurrency = 'AUD';
-  bool isWaiting = false;
-  Map<String, String> cryptoRatesData = {};
+  String _selectedCurrency = 'AUD';
+  bool _isWaiting = false;
+  Map<String, String> _cryptoRatesData = {};
 
   @override
   void initState() {
     super.initState();
-    getData();
+    _getData();
   }
 
   @override
@@ -50,7 +50,7 @@ class _PriceScreenState extends State<PriceScreen> {
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: getCryptoCards(),
+            children: _getCryptoCards(),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(7.0, 7.0, 7.0, 20.0),
@@ -68,11 +68,11 @@ class _PriceScreenState extends State<PriceScreen> {
                 itemExtent: 40.0,
                 onSelectedItemChanged: (int index) async {
                   setState(() {
-                    selectedCurrency = currenciesList[index];
-                    getData();
+                    _selectedCurrency = currenciesList[index];
+                    _getData();
                   });
                 },
-                children: getCupertinoPickerItems(),
+                children: _getCupertinoPickerItems(),
               ),
             ),
           ),
@@ -81,7 +81,7 @@ class _PriceScreenState extends State<PriceScreen> {
     );
   }
 
-  List<Widget> getCupertinoPickerItems() {
+  List<Widget> _getCupertinoPickerItems() {
     return currenciesList
         .map(
           (currency) => Center(
@@ -97,15 +97,15 @@ class _PriceScreenState extends State<PriceScreen> {
         .toList();
   }
 
-  List<Widget> getCryptoCards() {
+  List<Widget> _getCryptoCards() {
     List<Widget> cryptoCards = [];
 
     for (int i = 0; i < cryptoList.length; i++) {
       var crypto = cryptoList[i];
       cryptoCards.add(
         CryptoCard(
-          selectedCurrency: selectedCurrency,
-          rateValue: isWaiting ? '?' : cryptoRatesData[crypto],
+          selectedCurrency: _selectedCurrency,
+          rateValue: _isWaiting ? '?' : _cryptoRatesData[crypto],
           cryptoCurrency: crypto,
         ),
       );
@@ -114,15 +114,15 @@ class _PriceScreenState extends State<PriceScreen> {
     return cryptoCards;
   }
 
-  void getData() async {
-    isWaiting = true;
+  void _getData() async {
+    _isWaiting = true;
 
     try {
       var data =
-          await CoinData().getCoinData(selectedCurrency: selectedCurrency);
-      isWaiting = false;
+          await CoinData().getCoinData(selectedCurrency: _selectedCurrency);
+      _isWaiting = false;
       setState(() {
-        cryptoRatesData = data;
+        _cryptoRatesData = data;
       });
     } catch (e) {
       if (kDebugMode) {
