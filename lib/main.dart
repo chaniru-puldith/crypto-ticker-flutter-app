@@ -12,18 +12,28 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  static final ValueNotifier<ThemeMode> themeNotifier =
+      ValueNotifier(ThemeMode.light);
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.blue.shade800));
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-          primaryColor: Colors.blue.shade800,
-          scaffoldBackgroundColor: Color(0xFF142432)),
-      home: PriceScreen(),
-    );
+    return ValueListenableBuilder<ThemeMode>(
+        valueListenable: themeNotifier,
+        builder: (_, ThemeMode currentMode, __) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData.light().copyWith(
+                primaryColor: Colors.blue.shade800,
+                scaffoldBackgroundColor: Color(0xFFF5F5F5)),
+            darkTheme: ThemeData.dark().copyWith(
+                primaryColor: Colors.blue.shade800,
+                scaffoldBackgroundColor: Color(0xFF142432)),
+            themeMode: ThemeMode.system,
+            home: PriceScreen(),
+          );
+        });
   }
 }

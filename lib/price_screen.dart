@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'coin_data.dart';
+import 'main.dart';
 
 class PriceScreen extends StatefulWidget {
   @override
@@ -25,6 +26,18 @@ class _PriceScreenState extends State<PriceScreen> {
         centerTitle: true,
         title: const Text('🤑 Coin Ticker'),
         backgroundColor: Colors.blue.shade800,
+        actions: [
+          IconButton(
+              icon: Icon(MyApp.themeNotifier.value == ThemeMode.light
+                  ? Icons.dark_mode
+                  : Icons.light_mode),
+              onPressed: () {
+                MyApp.themeNotifier.value =
+                    MyApp.themeNotifier.value == ThemeMode.light
+                        ? ThemeMode.dark
+                        : ThemeMode.light;
+              })
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,6 +58,7 @@ class _PriceScreenState extends State<PriceScreen> {
               padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),
               alignment: Alignment.center,
               child: CupertinoPicker(
+                magnification: 1.3,
                 looping: true,
                 itemExtent: 40.0,
                 onSelectedItemChanged: (int index) async {
@@ -70,6 +84,7 @@ class _PriceScreenState extends State<PriceScreen> {
               currency,
               style: const TextStyle(
                 fontSize: 22,
+                color: Colors.white,
               ),
             ),
           ),
