@@ -29,10 +29,25 @@ class _PriceScreenState extends State<PriceScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          CryptoCard(
-            selectedCurrency: selectedCurrency,
-            rateValue: rateValue,
-            cryptoCurrency: 'BTC',
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CryptoCard(
+                selectedCurrency: selectedCurrency,
+                rateValue: rateValue,
+                cryptoCurrency: 'BTC',
+              ),
+              CryptoCard(
+                selectedCurrency: selectedCurrency,
+                rateValue: rateValue,
+                cryptoCurrency: 'ETH',
+              ),
+              CryptoCard(
+                selectedCurrency: selectedCurrency,
+                rateValue: rateValue,
+                cryptoCurrency: 'LTC',
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(7.0),
@@ -112,12 +127,12 @@ class CryptoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          children: [
+          children: <Widget>[
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
               child: Text(
-                '1 BTC = $rateValue $selectedCurrency',
+                '1 $cryptoCurrency = $rateValue $selectedCurrency',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20.0,
