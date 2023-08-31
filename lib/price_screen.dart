@@ -35,7 +35,7 @@ class _PriceScreenState extends State<PriceScreen> {
             children: getCryptoCards(),
           ),
           Padding(
-            padding: const EdgeInsets.all(7.0),
+            padding: const EdgeInsets.fromLTRB(7.0, 7.0, 7.0, 20.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),

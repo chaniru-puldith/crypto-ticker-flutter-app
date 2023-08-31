@@ -23,14 +23,11 @@ const List<String> currenciesList = [
   'SEK',
   'SGD',
   'USD',
-  'ZAR'
+  'ZAR',
+  'LKR'
 ];
 
-const List<String> cryptoList = [
-  'BTC',
-  'ETH',
-  'LTC',
-];
+const List<String> cryptoList = ['BTC', 'ETH', 'LTC', 'USDC', 'BNB'];
 
 const String apiUrl = 'https://rest.coinapi.io/v1/exchangerate';
 final String apiKey = dotenv.get('API_KEY2');
