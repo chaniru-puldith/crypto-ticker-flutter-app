@@ -32,17 +32,20 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: Card(
-              color: Colors.blue.shade900,
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: CryptoCard(
-                selectedCurrency: selectedCurrency,
-                rateValue: btcRate,
-                cryptoCurrency: 'BTC',
-              ),
-            ),
+                color: Colors.blue.shade900,
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  children: [
+                    CryptoCard(
+                      selectedCurrency: selectedCurrency,
+                      rateValue: btcRate,
+                      cryptoCurrency: 'BTC',
+                    ),
+                  ],
+                )),
           ),
           Padding(
             padding: const EdgeInsets.all(7.0),
