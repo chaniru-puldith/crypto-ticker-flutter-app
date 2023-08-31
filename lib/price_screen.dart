@@ -8,7 +8,7 @@ class PriceScreen extends StatefulWidget {
 }
 
 class _PriceScreenState extends State<PriceScreen> {
-  String btcRate = '?';
+  String rateValue = '?';
   String selectedCurrency = 'AUD';
 
   @override
@@ -23,36 +23,23 @@ class _PriceScreenState extends State<PriceScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('🤑 Coin Ticker'),
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.blue.shade800,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
-            child: Card(
-                color: Colors.blue.shade900,
-                elevation: 5.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  children: [
-                    CryptoCard(
-                      selectedCurrency: selectedCurrency,
-                      rateValue: btcRate,
-                      cryptoCurrency: 'BTC',
-                    ),
-                  ],
-                )),
+          CryptoCard(
+            selectedCurrency: selectedCurrency,
+            rateValue: rateValue,
+            cryptoCurrency: 'BTC',
           ),
           Padding(
             padding: const EdgeInsets.all(7.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.blue.shade900,
+                color: Colors.blue.shade800,
               ),
               height: 150.0,
               padding: const EdgeInsets.only(top: 7.0, bottom: 7.0),
@@ -94,7 +81,7 @@ class _PriceScreenState extends State<PriceScreen> {
     try {
       var data = await CoinData().getCoinData(currency);
       setState(() {
-        btcRate = data;
+        rateValue = data;
       });
     } catch (e) {
       print(e);
@@ -117,13 +104,28 @@ class CryptoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
-      child: Text(
-        '1 BTC = $rateValue $selectedCurrency',
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 20.0,
-          color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
+      child: Card(
+        color: Colors.blue.shade800,
+        elevation: 5.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+              child: Text(
+                '1 BTC = $rateValue $selectedCurrency',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

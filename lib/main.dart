@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.blue.shade900));
+        SystemUiOverlayStyle(statusBarColor: Colors.blue.shade800));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-          primaryColor: Colors.blue.shade900,
+          primaryColor: Colors.blue.shade800,
           scaffoldBackgroundColor: Color(0xFF142432)),
       home: PriceScreen(),
     );
