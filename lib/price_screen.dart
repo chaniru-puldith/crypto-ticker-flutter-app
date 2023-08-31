@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'coin_data.dart';
 import 'main.dart';
 
 class PriceScreen extends StatefulWidget {
+  const PriceScreen({super.key});
+
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
@@ -121,7 +124,9 @@ class _PriceScreenState extends State<PriceScreen> {
         cryptoRatesData = data;
       });
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 }

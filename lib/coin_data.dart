@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -39,7 +40,9 @@ class CoinData {
     for (String crypto in cryptoList) {
       final requestUrl =
           Uri.parse('$apiUrl/$crypto/$selectedCurrency?apikey=$apiKey');
-      print(requestUrl.toString());
+      if (kDebugMode) {
+        print(requestUrl.toString());
+      }
 
       http.Response response = await http.get(requestUrl);
 
@@ -48,7 +51,9 @@ class CoinData {
         double lastPrice = jsonResponse['rate'];
         ratesData[crypto] = lastPrice.toStringAsFixed(2);
       } else {
-        print(response.statusCode);
+        if (kDebugMode) {
+          print(response.statusCode);
+        }
         throw "Error";
       }
     }
