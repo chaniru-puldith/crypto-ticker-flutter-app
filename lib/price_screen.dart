@@ -28,15 +28,16 @@ class _PriceScreenState extends State<PriceScreen> {
         backgroundColor: Colors.blue.shade800,
         actions: [
           IconButton(
-              icon: Icon(MyApp.themeNotifier.value == ThemeMode.light
-                  ? Icons.dark_mode
-                  : Icons.light_mode),
-              onPressed: () {
-                MyApp.themeNotifier.value =
-                    MyApp.themeNotifier.value == ThemeMode.light
-                        ? ThemeMode.dark
-                        : ThemeMode.light;
-              })
+            icon: Icon(MyApp.themeNotifier.value == ThemeMode.light
+                ? Icons.dark_mode
+                : Icons.light_mode),
+            onPressed: () {
+              MyApp.themeNotifier.value =
+                  MyApp.themeNotifier.value == ThemeMode.light
+                      ? ThemeMode.dark
+                      : ThemeMode.light;
+            },
+          )
         ],
       ),
       body: Column(

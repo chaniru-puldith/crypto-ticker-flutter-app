@@ -13,7 +13,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   static final ValueNotifier<ThemeMode> themeNotifier =
-      ValueNotifier(ThemeMode.light);
+      ValueNotifier(ThemeMode.system);
   const MyApp({super.key});
 
   @override
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData.dark().copyWith(
                 primaryColor: Colors.blue.shade800,
                 scaffoldBackgroundColor: Color(0xFF142432)),
-            themeMode: ThemeMode.system,
+            themeMode: currentMode,
             home: PriceScreen(),
           );
         });
