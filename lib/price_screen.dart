@@ -38,7 +38,10 @@ class _PriceScreenState extends State<PriceScreen> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: CryptoCard(
-                  rateValue: btcRate, selectedCurrency: selectedCurrency),
+                selectedCurrency: selectedCurrency,
+                rateValue: btcRate,
+                cryptoCurrency: 'BTC',
+              ),
             ),
           ),
           Padding(
@@ -101,15 +104,17 @@ class CryptoCard extends StatelessWidget {
     super.key,
     required this.selectedCurrency,
     required this.rateValue,
+    required this.cryptoCurrency,
   });
 
-  final String rateValue;
   final String selectedCurrency;
+  final String rateValue;
+  final String cryptoCurrency;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
       child: Text(
         '1 BTC = $rateValue $selectedCurrency',
         textAlign: TextAlign.center,
