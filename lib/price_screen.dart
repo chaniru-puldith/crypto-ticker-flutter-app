@@ -97,8 +97,11 @@ class _PriceScreenState extends State<PriceScreen> {
 }
 
 class CryptoCard extends StatelessWidget {
-  const CryptoCard(
-      {super.key, required this.selectedCurrency, required this.rateValue, re});
+  const CryptoCard({
+    super.key,
+    required this.selectedCurrency,
+    required this.rateValue,
+  });
 
   final String rateValue;
   final String selectedCurrency;
