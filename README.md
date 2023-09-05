@@ -1,16 +1,16 @@
-# crypto_ticker
+# Crypto Ticker
 
 A simple Flutter project created for check crypto currency prices.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The Crypto Ticker app is a Flutter app that uses the Coin API to fetch real-time exchange rates for five cryptocurrencies (BTC, ETH, LTC, USDC, and BNB) against 11 fiat currencies (AUD, BRL, CAD, CNY, EUR, GBP, HKD, IDR, ILS, INR, JPY, MXN, NOK, NZD, PLN, RON, RUB, SEK, SGD, USD, ZAR, LKR). The app allows users to switch between light and dark mode.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# ScreenShots
+<img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/ec606e2c-085d-4701-ac15-fb82fe6f5bfb" width="400px">
+<img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/f0d190e4-231b-418e-9ece-f3ba1f43d6bd" width="400px" align="right">&nbsp;&nbsp;<br><br>
+<img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/4ddf6dda-3107-48c7-b93b-3cfbbdce8383" width="400px">
+<img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/52c70dda-4987-448f-a3b6-344d6694db0f" width="400px" align="right">
+&nbsp;&nbsp;<br><br>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
