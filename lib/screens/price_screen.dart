@@ -28,7 +28,7 @@ class _PriceScreenState extends State<PriceScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('🤑 Coin Ticker'),
+        title: const Text('🤑 Crypto Ticker'),
         backgroundColor: Colors.blue.shade800,
         actions: [
           IconButton(
